@@ -8,29 +8,38 @@ namespace _3._4.Polymorphism
         //UserError userError=new UserError();
         static void Main(string[] args)
         {
-                Console.ReadLine();
-                UserError text = new NumericInputError();
-                UserError number = new TextInputError();
-                text.UEMessage();
-                number.UEMessage();
-            
-            
+            //Console.ReadLine();
+            UserError text = new NumericInputError();
+            UserError number = new TextInputError();
+            text.UEMessage();
+            number.UEMessage();
+
+            //Skapa en lista med Errors
+            var errors = new List<UserError>
+             {
+                 text,
+                 number
+             };
 
 
-
-            //foreach (var userError in UserError)
-            //{
-
-            //}
+            //Skriv ut error meddelandena
+            foreach (var error in errors)
+            {
+                Console.WriteLine(error.UEMessage());
+            }
         }
     }
     abstract class UserError
     {
         // private List<UserError> userError;
-        public virtual  string UEMessage()
-        {
-            return "Error";
-        }
+
+        //Metoden UEMessage ska vara abstrakt
+        public abstract string UEMessage();
+
+        //public virtual  string UEMessage()
+        //{
+        //    return "Error";
+        //}
         //public UserError()
         //{
         //    userError = new List<UserError>();
